@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'io.freefair.lombok' version '5.0.0-rc6' apply false
+}
+
+group 'com.cas'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // 基础
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+    implementation 'com.alibaba:fastjson:1.2.61'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "org.projectlombok:lombok:1.18.12"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //hutool
+    implementation("cn.hutool:hutool-all:5.7.7")
+
+    // swagger
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    // zxing生成二维码
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation 'com.google.zxing:javase:3.3.3'
+
+}
+
+test {
+    useJUnitPlatform()
+}

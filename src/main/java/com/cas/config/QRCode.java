@@ -1,6 +1,8 @@
 package com.cas.config;
 
+import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.extra.qrcode.QrConfig;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,6 +20,10 @@ public class QRCode {
         config.setForeColor(Color.pink);
         // 设置背景色（灰色）
         config.setBackColor(Color.white);
+        // 设置纠错级别 L、M、Q、H几个参数，由低到高
+        config.setErrorCorrection(ErrorCorrectionLevel.H);
+        //  设置中间图
+        config.setImg(new ClassPathResource("logo/" + "logo.png").getPath());
         return config;
     }
 }

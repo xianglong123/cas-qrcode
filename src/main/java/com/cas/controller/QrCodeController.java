@@ -77,4 +77,14 @@ public class QrCodeController {
         qrService.generateStream(content,servletResponse);
     }
 
+    /**
+     *
+     * @param content
+     */
+    @PostMapping("hutool/logo")
+    public void hutoolLogo(String content, HttpServletResponse servletResponse) throws IOException {
+        servletResponse.setContentType("image/png");
+        qrService.generateStream(content,servletResponse);
+    }
+
 }
